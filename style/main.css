@@ -1,0 +1,392 @@
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: #3e52a3;
+}
+
+body {
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section {
+  padding: 3rem 0;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 90%;
+  max-width: 7.5rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             STYLING THE HEADER                             */
+/* -------------------------------------------------------------------------- */
+header {
+  height: 100vh;
+  background-image: url("../images/mobile/image-hero.jpg");
+  background-size: cover;
+  background-position: center top;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+
+header .navbar {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+header .navbar .navbar-logo {
+  float: left;
+  width: 150px;
+}
+
+header .navbar .menu-button {
+  float: right;
+  padding-top: 0.2rem;
+}
+
+header .navbar .header-navbar {
+  display: none;
+}
+
+header .title {
+  border-color: white;
+  border-style: solid;
+  border-width: 2px;
+  margin-top: 14rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  max-width: 552px;
+  color: white;
+  font-family: 'Josefin sans', 'sans-serif';
+  text-transform: uppercase;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                         STYLING THE CONTENT SECTION                        */
+/* -------------------------------------------------------------------------- */
+.content-area {
+  height: auto;
+  padding-top: 6.25rem;
+  padding-bottom: 6.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.content-area .vr-image {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.content-area .subtitle {
+  font-family: 'Josefin sans', 'sans-serif';
+  text-transform: uppercase;
+  font-weight: 100;
+  text-align: center;
+}
+
+.content-area .subtitle-paragraph {
+  font-family: 'Alata', 'sans-serif';
+  text-align: center;
+  color: #8c8c8c;
+  font-weight: 100;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                        STYLING THE CREATIONS SECTION                       */
+/* -------------------------------------------------------------------------- */
+.creations-area {
+  margin-bottom: 3.1rem;
+}
+
+.creations-area .creations-subtitle {
+  font-family: 'Josefin sans', 'sans-serif';
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 100;
+}
+
+.creations-area .desktop-creations-button {
+  display: none;
+}
+
+.creations-area .creations-content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[8];
+      grid-template-rows: repeat(8, 1fr);
+  row-gap: 1.6rem;
+  text-transform: uppercase;
+  font-family: 'Josefin sans', 'sans-serif';
+  text-align: left;
+  color: white;
+}
+
+@media screen and (min-width: 900px) {
+  .creations-area .creations-content {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -webkit-column-gap: 1.6rem;
+            column-gap: 1.6rem;
+    -ms-grid-rows: (1fr)[4];
+        grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+.creations-area .creations-content .creations-title {
+  width: 50%;
+  position: absolute;
+  padding-top: 3.5rem;
+  font-size: 1.5rem;
+}
+
+.creations-area .creations-content .item1 {
+  background-image: url(../images/mobile/image-deep-earth.jpg);
+  height: 124px;
+  background-size: cover;
+  background-position: center;
+}
+
+.creations-area .creations-content .item1:hover {
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/mobile/image-deep-earth.jpg);
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../images/mobile/image-deep-earth.jpg);
+}
+
+.creations-area .creations-content .item2 {
+  background-image: url(../images/mobile/image-night-arcade.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.creations-area .creations-content .item2:hover {
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/mobile/image-night-arcade.jpg);
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../images/mobile/image-night-arcade.jpg);
+}
+
+.creations-area .creations-content .item3 {
+  background-image: url(../images/mobile/image-soccer-team.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.creations-area .creations-content .item3:hover {
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/mobile/image-soccer-team.jpg);
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../images/mobile/image-soccer-team.jpg);
+}
+
+.creations-area .creations-content .item4 {
+  background-image: url(../images/mobile/image-grid.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.creations-area .creations-content .item4:hover {
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/mobile/image-grid.jpg);
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../images/mobile/image-grid.jpg);
+}
+
+.creations-area .creations-content .item5 {
+  background-image: url(../images/mobile/image-from-above.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.creations-area .creations-content .item5:hover {
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/mobile/image-from-above.jpg);
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../images/mobile/image-from-above.jpg);
+}
+
+.creations-area .creations-content .item6 {
+  background-image: url(../images/mobile/image-pocket-borealis.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.creations-area .creations-content .item6:hover {
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/mobile/image-pocket-borealis.jpg);
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../images/mobile/image-pocket-borealis.jpg);
+}
+
+.creations-area .creations-content .item7 {
+  background-image: url(../images/mobile/image-curiosity.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.creations-area .creations-content .item7:hover {
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/mobile/image-curiosity.jpg);
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../images/mobile/image-curiosity.jpg);
+}
+
+.creations-area .creations-content .item8 {
+  background-image: url(../images/mobile/image-fisheye.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.creations-area .creations-content .item8:hover {
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/mobile/image-fisheye.jpg);
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../images/mobile/image-fisheye.jpg);
+}
+
+.creations-area .mobile-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.creations-area .mobile-button-container .mobile-creations-button {
+  margin: 2rem auto;
+  padding: .5rem 3rem;
+  text-transform: uppercase;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600px;
+  color: black;
+  background-color: white;
+  border-color: black;
+  border-width: thin;
+}
+
+.creations-area .mobile-button-container .mobile-creations-button:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           STYLING THE FOOTER AREA                          */
+/* -------------------------------------------------------------------------- */
+footer {
+  background-color: black;
+}
+
+footer .footer-wrapper {
+  display: -ms-grid;
+  display: grid;
+  color: white;
+  padding-top: 3rem;
+}
+
+footer .footer-wrapper .footer-logo {
+  width: 150px;
+  display: block;
+  margin: 1.5rem auto;
+}
+
+footer .footer-wrapper .footer-navbar {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+footer .footer-wrapper .footer-navbar li {
+  list-style: none;
+  margin: 1.5rem auto;
+}
+
+footer .footer-wrapper .footer-navbar li a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Alata', 'sans-serif';
+  position: relative;
+}
+
+footer .footer-wrapper .footer-navbar li a::before {
+  content: '';
+  display: block;
+  height: 1.5px;
+  width: 0;
+  bottom: 0;
+  background-color: white;
+  position: absolute;
+  -webkit-transition: all ease-in-out 250ms;
+  transition: all ease-in-out 250ms;
+}
+
+footer .footer-wrapper .footer-navbar li a:hover::before {
+  width: 60%;
+}
+
+footer .footer-wrapper .footer-social {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+footer .footer-wrapper .footer-social li {
+  display: inline-block;
+  list-style: none;
+  margin: auto;
+  padding-left: 15px;
+}
+
+footer .footer-wrapper .footer-social li a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Alata', 'sans-serif';
+  position: relative;
+}
+
+footer .footer-wrapper .footer-social li a::before {
+  content: '';
+  display: block;
+  height: 1.5px;
+  width: 0;
+  bottom: 0;
+  background-color: white;
+  position: absolute;
+  -webkit-transition: all ease-in-out 250ms;
+  transition: all ease-in-out 250ms;
+}
+
+footer .footer-wrapper .footer-social li a:hover::before {
+  width: 60%;
+}
+
+footer .footer-wrapper .footer-copyright {
+  text-align: center;
+  color: dimgray;
+  font-family: 'Alata', 'sans-serif';
+}
+/*# sourceMappingURL=main.css.map */
