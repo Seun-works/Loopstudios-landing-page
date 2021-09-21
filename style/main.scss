@@ -1,4 +1,15 @@
 
+@mixin desktop-up {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin tablet-up {
+    @media (min-width: 900px) {
+        @content;
+    }
+}
 
 :root {
     $white: hsl(0, 0%, 100%);
@@ -13,6 +24,8 @@
 body {
     margin: 0;
     box-sizing: border-box;
+
+   
 }
 
 section {
@@ -34,12 +47,22 @@ section {
 /* -------------------------------------------------------------------------- */
 header {
     height: 100vh;
+    
     background-image: url('../images/mobile/image-hero.jpg');
     background-size: cover;
     background-position: center top;
 
     display: grid;
     align-items: start;
+
+    @include desktop-up {
+        background-image: url('../images/desktop/image-hero.jpg');
+        height: 100vh;
+    }
+
+    @include tablet-up {
+        min-height: 100vh;
+    }
 
     .navbar {
         padding-top: 2.5rem;
@@ -48,15 +71,48 @@ header {
         .navbar-logo {
             float: left;
             width: 150px;
+
+            @include desktop-up {
+                width: 190px;
+                padding-top: 0.2rem;
+            }
         }
 
         .menu-button {
             float: right;
             padding-top: 0.2rem;
+
+            @include desktop-up {
+                display: none;
+            }
         }
 
         .header-navbar {
             display: none;
+
+            @include desktop-up {
+                display: inline-block;
+                float: right;
+                padding-top: 0rem;
+
+                li {
+                    list-style: none;
+                    display: inline-block;
+                    padding-top: 0rem;
+
+                    a {
+                       text-decoration: none;
+                       padding-left: 2rem;
+                       
+                       font-family: 'Alata', 'sans-serif';
+                       color: white; 
+                    }
+                    
+                    
+                }
+                
+
+            }
         }
 
 
@@ -79,6 +135,16 @@ header {
             font-family: 'Josefin sans', 'sans-serif';
             text-transform: uppercase;
 
+            @include desktop-up {
+                font-size: 3rem;
+                margin-top: 20rem;
+            }
+
+            @include tablet-up {
+                font-size: 3rem;
+                margin-top: 20rem;
+            }
+
         }
 
 }
@@ -98,24 +164,63 @@ header {
     align-items: center;
     position: relative;
 
+    @include desktop-up {
+        flex-direction: row;
+        overflow: hidden;
+    }
+
     .vr-image {
         width: 100%;
+        max-width: 731px;
+        display: block;
         margin-bottom: 2rem;
+
+        @include desktop-up {
+            margin-right: auto;
+        }
+
     }
 
-    .subtitle {
-        font-family: 'Josefin sans', 'sans-serif';
-        text-transform: uppercase;
-        font-weight: 100;
-        text-align: center;
+    .description {
+
+        background-color: white;
+        max-width: 640px;
+
+        @include desktop-up {
+            padding: 6rem 4rem;
+            position: absolute;
+            top: 280px;
+            right: -100px;
+        }
+
+        .subtitle {
+            font-family: 'Josefin sans', 'sans-serif';
+            text-transform: uppercase;
+            font-weight: 100;
+            text-align: center;
+            line-height: 1.1;
+
+            @include desktop-up {
+                font-size: 2rem;
+                text-align: left;
+            }
+        }
+    
+        .subtitle-paragraph {
+            font-family: 'Alata', 'sans-serif';
+            text-align: center;
+            color: hsl(0, 0%, 55%);
+            font-weight: 100;
+            line-height: 1.7;
+
+            @include desktop-up {
+                text-align: left;
+            }
+        }
+
     }
 
-    .subtitle-paragraph {
-        font-family: 'Alata', 'sans-serif';
-        text-align: center;
-        color: hsl(0, 0%, 55%);
-        font-weight: 100;
-    }
+   
 }
 
 /* -------------------------------------------------------------------------- */
@@ -125,16 +230,60 @@ header {
 .creations-area {
     margin-bottom: 3.1rem;
 
+
+    .desktop-creations-wrapper {
+
+        @include desktop-up {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+
     .creations-subtitle {
         font-family: 'Josefin sans', 'sans-serif';
         text-align: center;
         text-transform: uppercase;
         font-weight: 100;
+
+        @include desktop-up {
+            order: 1;
+            text-align: left;
+            
+        }
     }
 
-    .desktop-creations-button {
-        display:none;
-    }
+        .desktop-creations-button {
+            display: none;
+            
+
+            @include desktop-up {
+                display: block;
+                order: 2;
+                margin-top: auto;
+                margin-bottom: auto;
+                margin-left: auto; 
+                
+                padding: .5rem 3rem;
+                text-transform: uppercase;
+                font-family: 'Josefin Sans', sans-serif;
+                font-size: 1rem;
+                font-weight: 600px;
+                color: black;
+                background-color: white;
+                border-color: black;
+                border-width: thin;
+        
+                &:hover {
+                    cursor: pointer;
+                    background-color: black;
+                    color: white;
+                }
+            }
+            
+        }
+   
+   }
+    
 
     .creations-content {
         display: grid;
@@ -145,7 +294,7 @@ header {
         text-align: left;
         color: white;
 
-        @media  screen and (min-width: 900px) {
+        @include tablet-up {
             
             grid-template-columns: repeat(2, 1fr);
             column-gap: 1.6rem;
@@ -153,11 +302,22 @@ header {
 
         }
 
+        @include desktop-up {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+        
+
         .creations-title {
             width: 50%;
             position: absolute;
             padding-top: 3.5rem;
             font-size: 1.5rem;
+
+            @include desktop-up {
+                padding-top: 25rem;
+            }
         }
         
 
@@ -180,6 +340,18 @@ header {
                     /* bottom, image */
                     url(../images/mobile/image-deep-earth.jpg);
             }
+
+            @include desktop-up {
+                background-image: url(../images/desktop/image-deep-earth.jpg);
+                height: 450px;
+
+                &:hover {
+                    background : linear-gradient(
+                        rgba(255, 255, 255, 0.5), 
+                        rgba(255, 255, 255, 0.5)
+                        ),url(../images/desktop/image-deep-earth.jpg)
+                }
+            }
         }
 
         .item2 {
@@ -198,6 +370,19 @@ header {
                     ),
                     /* bottom, image */
                     url(../images/mobile/image-night-arcade.jpg);
+            }
+
+            @include desktop-up {
+                background-image: url(../images/desktop/image-night-arcade.jpg);
+                height: 450px;
+
+
+                &:hover {
+                    background : linear-gradient(
+                        rgba(255, 255, 255, 0.5), 
+                        rgba(255, 255, 255, 0.5)
+                        ),url(../images/desktop/image-night-arcade.jpg)
+                }
             }
         }
 
@@ -218,6 +403,19 @@ header {
                     /* bottom, image */
                     url(../images/mobile/image-soccer-team.jpg);
             }
+
+            @include desktop-up {
+                background-image: url(../images/desktop/image-soccer-team.jpg);
+                height: 450px;
+
+
+                &:hover {
+                    background : linear-gradient(
+                        rgba(255, 255, 255, 0.5), 
+                        rgba(255, 255, 255, 0.5)
+                        ),url(../images/desktop/image-soccer-team.jpg)
+                }
+            }
         }
 
         .item4 {
@@ -236,6 +434,19 @@ header {
                     ),
                     /* bottom, image */
                     url(../images/mobile/image-grid.jpg);
+            }
+
+            @include desktop-up {
+                background-image: url(../images/desktop/image-grid.jpg);
+                height: 450px;
+
+
+                &:hover {
+                    background : linear-gradient(
+                        rgba(255, 255, 255, 0.5), 
+                        rgba(255, 255, 255, 0.5)
+                        ),url(../images/desktop/image-grid.jpg)
+                }
             }
         }
 
@@ -256,6 +467,19 @@ header {
                     /* bottom, image */
                     url(../images/mobile/image-from-above.jpg);
             }
+
+            @include desktop-up {
+                background-image: url(../images/desktop/image-from-above.jpg);
+                height: 450px;
+
+
+                &:hover {
+                    background : linear-gradient(
+                        rgba(255, 255, 255, 0.5), 
+                        rgba(255, 255, 255, 0.5)
+                        ),url(../images/desktop/image-from-above.jpg)
+                }
+            }
         }
 
         .item6 {
@@ -274,6 +498,19 @@ header {
                     ),
                     /* bottom, image */
                     url(../images/mobile/image-pocket-borealis.jpg);
+            }
+
+            @include desktop-up {
+                background-image: url(../images/desktop/image-pocket-borealis.jpg);
+                height: 450px;
+
+
+                &:hover {
+                    background : linear-gradient(
+                        rgba(255, 255, 255, 0.5), 
+                        rgba(255, 255, 255, 0.5)
+                        ),url(../images/desktop/image-pocket-borealis.jpg)
+                }
             }
         }
 
@@ -294,6 +531,19 @@ header {
                     /* bottom, image */
                     url(../images/mobile/image-curiosity.jpg);
             }
+
+            @include desktop-up {
+                background-image: url(../images/desktop/image-curiosity.jpg);
+                height: 450px;
+
+
+                &:hover {
+                    background : linear-gradient(
+                        rgba(255, 255, 255, 0.5), 
+                        rgba(255, 255, 255, 0.5)
+                        ),url(../images/desktop/image-curiosity.jpg)
+                }
+            }
         }
 
         .item8 {
@@ -313,6 +563,19 @@ header {
                     /* bottom, image */
                     url(../images/mobile/image-fisheye.jpg);
             }
+
+            @include desktop-up {
+                background-image: url(../images/desktop/image-fisheye.jpg);
+                height: 450px;
+
+
+                &:hover {
+                    background : linear-gradient(
+                        rgba(255, 255, 255, 0.5), 
+                        rgba(255, 255, 255, 0.5)
+                        ),url(../images/desktop/image-fisheye.jpg)
+                }
+            }
         }
 
        
@@ -325,6 +588,10 @@ header {
         justify-items: center;
         align-items: center;
         flex-direction: row;
+
+        @include desktop-up {
+            display: none;
+        }
 
         .mobile-creations-button {
             margin: 2rem auto;
@@ -360,10 +627,21 @@ footer {
         color: white;
         padding-top: 3rem;
 
+        @include desktop-up {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2,1fr);
+            margin: auto;
+        }
+
         .footer-logo {
             width: 150px;
             display: block;   
             margin: 1.5rem auto;
+
+            @include desktop-up {
+                text-align: left;
+                margin-left: 0;
+            }
         }
 
         .footer-navbar {
@@ -409,12 +687,59 @@ footer {
        
         }
 
+        @include desktop-up {
+            display: inline-block;
+            float: right;
+            padding-top: 0rem;
+            margin-right: 0;
+            
+            
+
+                li {
+                    list-style: none;
+                    display: inline-block;
+                   margin-right: 0;
+
+                    a {
+                       text-decoration: none;
+                       text-align: right;
+                       margin-right: 1rem;
+                       padding-right: 1rem;
+                       font-family: 'Alata', 'sans-serif';
+                       color: white; 
+
+                       &::before {
+                        content: '';
+                        display: block;
+                        height: 1.5px;
+                        width: 0;
+                        bottom: 0;
+                        background-color: white;
+                        position: absolute;
+                        transition: all ease-in-out 250ms;
+        
+                    }
+        
+                    &:hover {
+        
+                        &::before {
+                            width: 60%;
+                        }
+                    }
+                }
+                    
+                    
+            }
+        }
+
     }
 
     .footer-social {
+        display: flex;
+        justify-content: center;
+        
         margin-left: auto;
         margin-right: auto;
-        margin-top: 1.5rem;
         text-align: center;
 
        li {
@@ -450,13 +775,35 @@ footer {
         
         }
            }
+
+           @include desktop-up {
+            margin-left: 0;
+            margin-right: auto;
+            margin-top: 0;
+            margin-bottom: 0;
+
+            li {
+                margin-top: 0;
+                padding-right: 15px;
+            }
+               
+           }
     }
 
     .footer-copyright {
         text-align: center;
         color:hsl(0, 0%, 41%);
         font-family: 'Alata', 'sans-serif';
+
+        @include desktop-up {
+            margin: 0;
+            text-align: end;
+            order: 4;
+            
+        }
     }
+
+
   }
 
 
