@@ -1,16 +1,34 @@
-.attribution {
-  font-size: 11px;
-  text-align: center;
-}
-
-.attribution a {
-  color: #3e52a3;
+/* ----------------- BREAKPOINTS FOR DIFFERENT SCREEN SIZES ----------------- */
+/* ---------------- MOBILE MENU OPEN AND CLOSE FUNCTIONALITY ---------------- */
+@media (max-width: 1200px) {
+  .is-open {
+    background-image: url("../images/mobile/black.jpeg");
+  }
+  .is-open .mobile-navbar {
+    display: block;
+    padding-top: 3rem;
+  }
+  .is-open .mobile-navbar li {
+    list-style: none;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+  .is-open .mobile-navbar li a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Alata', 'sans-serif';
+    text-transform: uppercase;
+  }
+  .is-open .title {
+    display: none;
+  }
 }
 
 body {
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  overflow: auto;
 }
 
 section {
@@ -42,12 +60,6 @@ header {
 @media (min-width: 1200px) {
   header {
     background-image: url("../images/desktop/image-hero.jpg");
-    height: 100vh;
-  }
-}
-
-@media (min-width: 900px) {
-  header {
     min-height: 100vh;
   }
 }
@@ -60,6 +72,8 @@ header .navbar {
 header .navbar .navbar-logo {
   float: left;
   width: 150px;
+  z-index: 10;
+  position: relative;
 }
 
 @media (min-width: 1200px) {
@@ -72,6 +86,8 @@ header .navbar .navbar-logo {
 header .navbar .menu-button {
   float: right;
   padding-top: 0.2rem;
+  position: relative;
+  z-index: 10;
 }
 
 @media (min-width: 1200px) {
@@ -97,10 +113,29 @@ header .navbar .header-navbar {
   }
   header .navbar .header-navbar li a {
     text-decoration: none;
-    padding-left: 2rem;
+    padding-right: 2rem;
+    position: relative;
     font-family: 'Alata', 'sans-serif';
     color: white;
   }
+  header .navbar .header-navbar li a::before {
+    content: '';
+    display: block;
+    height: 1.5px;
+    width: 0;
+    bottom: 0;
+    background-color: white;
+    position: absolute;
+    -webkit-transition: all ease-in-out 250ms;
+    transition: all ease-in-out 250ms;
+  }
+  header .navbar .header-navbar li a:hover::before {
+    width: 60%;
+  }
+}
+
+header .mobile-navbar {
+  display: none;
 }
 
 header .title {
@@ -121,6 +156,7 @@ header .title {
   header .title {
     font-size: 3rem;
     margin-top: 20rem;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -287,7 +323,7 @@ header .title {
   display: grid;
   -ms-grid-rows: (1fr)[8];
       grid-template-rows: repeat(8, 1fr);
-  row-gap: 1.6rem;
+  row-gap: 1.5rem;
   text-transform: uppercase;
   font-family: 'Josefin sans', 'sans-serif';
   text-align: left;
@@ -298,8 +334,8 @@ header .title {
   .creations-area .creations-content {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
-    -webkit-column-gap: 1.6rem;
-            column-gap: 1.6rem;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
     -ms-grid-rows: (1fr)[4];
         grid-template-rows: repeat(4, 1fr);
   }
@@ -309,13 +345,15 @@ header .title {
   .creations-area .creations-content {
     -ms-grid-columns: (1fr)[4];
         grid-template-columns: repeat(4, 1fr);
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
     -ms-grid-rows: (1fr)[2];
         grid-template-rows: repeat(2, 1fr);
   }
 }
 
 .creations-area .creations-content .creations-title {
-  width: 50%;
+  width: 25%;
   position: absolute;
   padding-top: 3.5rem;
   font-size: 1.5rem;
@@ -344,6 +382,8 @@ header .title {
   .creations-area .creations-content .item1 {
     background-image: url(../images/desktop/image-deep-earth.jpg);
     height: 450px;
+    background-size: cover;
+    background-position: center;
   }
   .creations-area .creations-content .item1:hover {
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/desktop/image-deep-earth.jpg);
@@ -367,6 +407,8 @@ header .title {
   .creations-area .creations-content .item2 {
     background-image: url(../images/desktop/image-night-arcade.jpg);
     height: 450px;
+    background-size: cover;
+    background-position: center;
   }
   .creations-area .creations-content .item2:hover {
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/desktop/image-night-arcade.jpg);
@@ -390,6 +432,8 @@ header .title {
   .creations-area .creations-content .item3 {
     background-image: url(../images/desktop/image-soccer-team.jpg);
     height: 450px;
+    background-size: cover;
+    background-position: center;
   }
   .creations-area .creations-content .item3:hover {
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/desktop/image-soccer-team.jpg);
@@ -413,6 +457,8 @@ header .title {
   .creations-area .creations-content .item4 {
     background-image: url(../images/desktop/image-grid.jpg);
     height: 450px;
+    background-size: cover;
+    background-position: center;
   }
   .creations-area .creations-content .item4:hover {
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/desktop/image-grid.jpg);
@@ -436,6 +482,8 @@ header .title {
   .creations-area .creations-content .item5 {
     background-image: url(../images/desktop/image-from-above.jpg);
     height: 450px;
+    background-size: cover;
+    background-position: center;
   }
   .creations-area .creations-content .item5:hover {
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/desktop/image-from-above.jpg);
@@ -459,6 +507,8 @@ header .title {
   .creations-area .creations-content .item6 {
     background-image: url(../images/desktop/image-pocket-borealis.jpg);
     height: 450px;
+    background-size: cover;
+    background-position: center;
   }
   .creations-area .creations-content .item6:hover {
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/desktop/image-pocket-borealis.jpg);
@@ -482,6 +532,8 @@ header .title {
   .creations-area .creations-content .item7 {
     background-image: url(../images/desktop/image-curiosity.jpg);
     height: 450px;
+    background-size: cover;
+    background-position: center;
   }
   .creations-area .creations-content .item7:hover {
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/desktop/image-curiosity.jpg);
@@ -505,6 +557,8 @@ header .title {
   .creations-area .creations-content .item8 {
     background-image: url(../images/desktop/image-fisheye.jpg);
     height: 450px;
+    background-size: cover;
+    background-position: center;
   }
   .creations-area .creations-content .item8:hover {
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5))), url(../images/desktop/image-fisheye.jpg);
@@ -642,6 +696,7 @@ footer .footer-wrapper .footer-navbar li a:hover::before {
     padding-right: 1rem;
     font-family: 'Alata', 'sans-serif';
     color: white;
+    position: relative;
   }
   footer .footer-wrapper .footer-navbar li a::before {
     content: '';

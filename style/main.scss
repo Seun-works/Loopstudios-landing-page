@@ -1,4 +1,13 @@
+:root {
+    $white: hsl(0, 0%, 100%);
+    $black: hsl(0, 0%, 0%);
+    $darkGray: hsl(0, 0%, 55%);
+    $veryDarkGray: hsl(0, 0%, 41%);
+}
 
+
+
+/* ----------------- BREAKPOINTS FOR DIFFERENT SCREEN SIZES ----------------- */
 @mixin desktop-up {
     @media (min-width: 1200px) {
         @content;
@@ -11,21 +20,51 @@
     }
 }
 
-:root {
-    $white: hsl(0, 0%, 100%);
-    $black: hsl(0, 0%, 0%);
-    $darkGray: hsl(0, 0%, 55%);
-    $veryDarkGray: hsl(0, 0%, 41%);
+@mixin mobile-down  {
+    @media (max-width: 1200px) {
+        @content;
+    }
 }
 
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+
+
+
+/* ---------------- MOBILE MENU OPEN AND CLOSE FUNCTIONALITY ---------------- */
+@include mobile-down {
+    .is-open {
+        
+        background-image: url('../images/mobile/black.jpeg');
+        .mobile-navbar {
+            display: block;
+            padding-top: 3rem;
+    
+        li {
+            list-style: none;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            
+    
+            a {
+                text-decoration: none;
+                color: white;
+                font-family: 'Alata', 'sans-serif';
+                text-transform: uppercase;
+                
+            }
+        }
+        }
+    
+        .title {
+            display: none;
+        }
+    }
+}
+
 
 body {
     margin: 0;
     box-sizing: border-box;
-
-   
+    overflow: auto;   
 }
 
 section {
@@ -42,26 +81,26 @@ section {
 }
 
 
+
 /* -------------------------------------------------------------------------- */
 /*                             STYLING THE HEADER                             */
 /* -------------------------------------------------------------------------- */
 header {
+
     height: 100vh;
-    
     background-image: url('../images/mobile/image-hero.jpg');
     background-size: cover;
     background-position: center top;
-
     display: grid;
     align-items: start;
 
     @include desktop-up {
         background-image: url('../images/desktop/image-hero.jpg');
-        height: 100vh;
+        min-height: 100vh;
     }
 
     @include tablet-up {
-        min-height: 100vh;
+        
     }
 
     .navbar {
@@ -71,6 +110,8 @@ header {
         .navbar-logo {
             float: left;
             width: 150px;
+            z-index: 10;
+            position: relative;
 
             @include desktop-up {
                 width: 190px;
@@ -81,6 +122,8 @@ header {
         .menu-button {
             float: right;
             padding-top: 0.2rem;
+            position: relative;
+            z-index: 10;
 
             @include desktop-up {
                 display: none;
@@ -102,10 +145,32 @@ header {
 
                     a {
                        text-decoration: none;
-                       padding-left: 2rem;
+                       padding-right: 2rem;
+                       position: relative;
                        
                        font-family: 'Alata', 'sans-serif';
                        color: white; 
+
+                       &::before {
+                        content: '';
+                        display: block;
+                        height: 1.5px;
+                        width: 0;
+                        bottom: 0;
+                        background-color: white;
+                        position: absolute;
+                        transition: all ease-in-out 250ms;
+        
+                    }
+        
+                    &:hover {
+        
+                        &::before {
+                            width: 60%;
+                        }
+                    }
+
+                       
                     }
                     
                     
@@ -115,12 +180,18 @@ header {
             }
         }
 
+        
 
+    }
+
+    .mobile-navbar {
+        display: none;
     }
 
 
     
         .title {
+            
             border-color: white;
             border-style: solid;
             border-width: 2px;
@@ -138,6 +209,7 @@ header {
             @include desktop-up {
                 font-size: 3rem;
                 margin-top: 20rem;
+                margin-bottom: 1.5rem;
             }
 
             @include tablet-up {
@@ -146,6 +218,8 @@ header {
             }
 
         }
+
+        
 
 }
 
@@ -288,7 +362,7 @@ header {
     .creations-content {
         display: grid;
         grid-template-rows: repeat(8, 1fr);
-        row-gap: 1.6rem;
+        row-gap: 1.5rem;
         text-transform: uppercase;
         font-family: 'Josefin sans', 'sans-serif';
         text-align: left;
@@ -297,20 +371,21 @@ header {
         @include tablet-up {
             
             grid-template-columns: repeat(2, 1fr);
-            column-gap: 1.6rem;
+            column-gap: 10px;
             grid-template-rows: repeat(4, 1fr);
 
         }
 
         @include desktop-up {
             grid-template-columns: repeat(4, 1fr);
+            column-gap: 10px;
             grid-template-rows: repeat(2, 1fr);
         }
 
         
 
         .creations-title {
-            width: 50%;
+            width: 25%;
             position: absolute;
             padding-top: 3.5rem;
             font-size: 1.5rem;
@@ -344,6 +419,8 @@ header {
             @include desktop-up {
                 background-image: url(../images/desktop/image-deep-earth.jpg);
                 height: 450px;
+                background-size: cover;
+                background-position: center;
 
                 &:hover {
                     background : linear-gradient(
@@ -375,6 +452,8 @@ header {
             @include desktop-up {
                 background-image: url(../images/desktop/image-night-arcade.jpg);
                 height: 450px;
+                background-size: cover;
+                background-position: center;
 
 
                 &:hover {
@@ -407,6 +486,8 @@ header {
             @include desktop-up {
                 background-image: url(../images/desktop/image-soccer-team.jpg);
                 height: 450px;
+                background-size: cover;
+                background-position: center;
 
 
                 &:hover {
@@ -439,6 +520,8 @@ header {
             @include desktop-up {
                 background-image: url(../images/desktop/image-grid.jpg);
                 height: 450px;
+                background-size: cover;
+                background-position: center;
 
 
                 &:hover {
@@ -471,6 +554,8 @@ header {
             @include desktop-up {
                 background-image: url(../images/desktop/image-from-above.jpg);
                 height: 450px;
+                background-size: cover;
+                background-position: center;
 
 
                 &:hover {
@@ -503,6 +588,8 @@ header {
             @include desktop-up {
                 background-image: url(../images/desktop/image-pocket-borealis.jpg);
                 height: 450px;
+                background-size: cover;
+                background-position: center;
 
 
                 &:hover {
@@ -535,6 +622,8 @@ header {
             @include desktop-up {
                 background-image: url(../images/desktop/image-curiosity.jpg);
                 height: 450px;
+                background-size: cover;
+                background-position: center;
 
 
                 &:hover {
@@ -567,13 +656,15 @@ header {
             @include desktop-up {
                 background-image: url(../images/desktop/image-fisheye.jpg);
                 height: 450px;
+                background-size: cover;
+                background-position: center;
 
 
                 &:hover {
                     background : linear-gradient(
                         rgba(255, 255, 255, 0.5), 
                         rgba(255, 255, 255, 0.5)
-                        ),url(../images/desktop/image-fisheye.jpg)
+                        ),url(../images/desktop/image-fisheye.jpg);
                 }
             }
         }
@@ -707,6 +798,7 @@ footer {
                        padding-right: 1rem;
                        font-family: 'Alata', 'sans-serif';
                        color: white; 
+                       position: relative;
 
                        &::before {
                         content: '';
