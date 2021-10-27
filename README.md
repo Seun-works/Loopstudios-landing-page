@@ -23,9 +23,10 @@ This project is a landing page for a fictional company created to be responisve 
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
 - Live Site URL: [Loopstudios Landing page ](https://seun-works.github.io/Loopstudios-landing-page/)
+- Test my ability to build a webssite from scratch while following a design in order to be as pixel perfect as possible.
 
 ## My process
-I've done this project twice and I must say that it was a blessing in disguise. My first attempt at it was done from a desktop version first, which led to so many complications in building the mobile version and making the site responsive. I addressed this flaw in my design process by redoing this project, but with the mindset of starting from the mobile version and work my way up to the more complicated destop version.
+I've done this project twice and I must say that it was a blessing in disguise. My first attempt at it was done from a desktop version first, which led to so many complications in building the mobile version and making the site responsive. I addressed this flaw in my design process by redoing this project, but with the mindset of starting from the mobile version and work my way up to the more complicated desktop version.
 
 
 ### Built with
